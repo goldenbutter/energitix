@@ -7,7 +7,7 @@ export function createFilm(canvas,{asset,reduced,audio,sound}){
  const cutoutContext=cutout.getContext('2d');
  // The solid product canvas provides occlusion. Never erase the headline:
  // its video silhouette is in a different position during the 3D handoff.
- for(const property of ['mask-image','mask-size','mask-position'])heading.style.removeProperty(property);
+ for(const property of ['mask-image','mask-size','mask-position','opacity'])heading.style.removeProperty(property);
  const canFrames=new Map();let lastMask=null;
  const frames=new Map(),loading=new Set(),queue=[];let active=0,disposed=false,frame=0,lastDraw=-1,lastW=0,lastH=0,lastScroll=scrollY,wasPlaying=false;
  function load(index){if(frames.has(index)||loading.has(index)||queue.includes(index))return;queue.push(index);pump();}
@@ -81,7 +81,7 @@ export function createFilm(canvas,{asset,reduced,audio,sound}){
   const hasFrame=visible&&draw(index);
   canvas.style.opacity=String(hasFrame&&activeScene?(progress<.06?clamp(progress/.06):progress>.94?clamp((1-progress)/.06):1):0);
   productCanvas.style.opacity=canvas.style.opacity;
-  if(!reduced){const backgroundDrift=innerWidth<=700?progress*innerHeight*.08:0;heading.style.transform=`translateY(${(1-clamp(progress*10))*25-backgroundDrift}px)`;heading.style.opacity=String(.75+clamp(progress*8)*.25);}
+  if(!reduced){const backgroundDrift=innerWidth<=700?progress*innerHeight*.08:0;heading.style.transform=`translateY(${(1-clamp(progress*10))*25-backgroundDrift}px)`;}
   const moving=Math.abs(scrollY-lastScroll)>.2;lastScroll=scrollY;
   if(sound()&&activeScene&&moving&&!reduced){
    if(Math.abs(audio.currentTime-movieProgress*8)>.4)audio.currentTime=movieProgress*8;

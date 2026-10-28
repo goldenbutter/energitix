@@ -6,7 +6,7 @@ A cinematic, interactive energy drink concept, designed and developed by **[iBit
 
 ## Desktop teaser
 
-Click the animated preview to open the full-resolution video with playback controls. The 53-second recording scrolls through the actual desktop website from top to bottom.
+Click the animated preview to open the full-resolution video with playback controls. The 39-second recording, saved at 1.4× speed, scrolls through the actual desktop website from top to bottom.
 
 [![ENERGITIX desktop tour — click to watch the full video](public/media/energitix-desktop-teaser.gif)](https://energetix.ibithun.com/teaser.html)
 
@@ -103,6 +103,10 @@ npm run test:film
 
 The focused suite checks seven viewport sizes in Chromium and WebKit, including phones, tablet, landscape and desktop. It samples film entry, playback and exit in both scroll directions, compares the entering title against an unoccluded pixel reference, and delays product mattes to verify the 3D fallback remains visible. Reduced-motion loading is checked separately. Reports and screenshots go to `analysis/film-verification/`. See [TESTING.md](TESTING.md) for the verified matrix and regression details.
 
+### Splash lettering checks
+
+With the Python asset-processing environment installed, run `npm run test:splash` to compare visible letter pixels across 18 film frames in desktop and phone viewports, in Chromium and WebKit. The moving liquid must not change the uncovered black or ivory letters. Results are stored in `analysis/splash-verification/`.
+
 ## Re-create the teaser
 
 Install ffmpeg (including ffprobe) and Playwright Chromium. For a stable recording without development-server reloads, run `npm run build` and `npm run preview -- --port 4173`, then in another terminal:
@@ -111,7 +115,7 @@ Install ffmpeg (including ffprobe) and Playwright Chromium. For a stable recordi
 TEASER_URL=http://localhost:4173 npm run record:teaser
 ```
 
-The recorder captures a 1600 × 900 desktop tour, including the pinned anatomy and commercial sections, ending on the iBithun footer. It exports an H.264 MP4 with fast-start playback, a lightweight animated GIF for GitHub, and a JPEG poster into `public/media/`. `TEASER_URL` can point at a different running deployment. Raw recordings and timing receipts stay in ignored `analysis/teaser-recording/`.
+The recorder captures a 1600 × 900 desktop tour, including the pinned anatomy and commercial sections, ending on the iBithun footer. It exports an H.264 MP4 with fast-start playback, an animated GIF at the same 1.4× speed for GitHub, and a JPEG poster into `public/media/`. `TEASER_URL` can point at a different running deployment. Raw recordings and timing receipts stay in ignored `analysis/teaser-recording/`.
 
 ## Rebuild the product assets
 

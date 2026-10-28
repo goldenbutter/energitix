@@ -33,3 +33,14 @@ npm run test:visual
 ```
 
 Use `BASE_URL=https://energetix.ibithun.com` to target production. `FILM_ENGINES=chromium` or `FILM_ENGINES=webkit` selects an engine; `FILM_SPECIAL_ONLY=1` runs only loading and resize cases. Screenshots and JSON reports are stored in ignored `analysis/`.
+
+## Splash lettering and teaser speed follow-up
+
+The multiply-blended liquid previously sat above the headline, changing the ivory letter pixels as the splash moved. The liquid now sits below the headline; the solid can remains above both. The headline opacity stays constant.
+
+- The original splash frame 100 changed 6,568 of 28,869 sampled solid letter pixels (22.75%). The same frame passes after the fix with zero changed letter pixels.
+- An 18-frame sweep passed in Chromium and WebKit at 1440 × 900 and 390 × 844: 72 screenshot comparisons sampling both black and ivory letters, with zero changed solid-letter pixels.
+- Entry/exit regression checks were repeated in both engines at desktop and phone widths, including reverse scrolling, delayed media, reduced motion and mobile resizing; all 10 cases passed.
+- Teaser MP4 encoding applies `setpts=PTS/1.4` after removing capture stalls. The README GIF derives from that sped-up MP4; the live website's scroll speed is unchanged. The exported MP4 is 38.7 seconds at 1600 × 900 / 30 fps and decoded without errors.
+
+Run `npm run test:splash` with the Python asset environment installed. Its screenshots and pixel-count report go to `analysis/splash-verification/`.

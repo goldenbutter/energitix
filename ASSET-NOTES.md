@@ -18,8 +18,14 @@ The original commercial crops the splash at the top of its 1280 × 720 frames. T
 
 ## Film headline layering
 
-The splash canvas uses multiply blending, while a separate normal-blend canvas restores the original can pixels through the source-aligned mattes in `public/assets/can-masks/`. This solid product layer occludes both headline colours and preserves silver highlights. The headline itself is never masked: masking it with the video silhouette caused holes while the video was invisible and the travelling 3D model was elsewhere.
+The splash canvas uses multiply blending **below** the headline (z-index 2 versus 3), while a separate normal-blend canvas restores the original can pixels through the source-aligned mattes in `public/assets/can-masks/`. This solid product layer occludes both headline colours and preserves silver highlights. The headline itself is never masked: masking it with the video silhouette caused holes while the video was invisible and the travelling 3D model was elsewhere.
 
 `scripts/prepare_can_masks.py` derives and temporally smooths the can silhouette. The matte fills interior white reflections instead of treating brightness as transparency; its outside contour is inset and feathered, and the lower rim follows each frame’s row bounds. The splash outside the can retains multiply blending.
 
 A film frame becomes available only after its image and matte have both decoded. The 3D model follows the film canvas’s actual visibility, so delayed media retains the model instead of exposing an incomplete product layer. Transition regression coverage lives in `scripts/verify-film.mjs`.
+
+## Splash lettering stability
+
+The headline remains fully opaque and sits above the changing liquid image, while the solid can stays above both. This avoids brightness modulation of the ivory letters during the splash. A screenshot comparison of frame 100 reproduced the previous defect: 6,568 of 28,869 solid letter pixels changed. `scripts/verify-splash.mjs` compares unobscured letter interiors against a reference without the media layers, across the splash sequence in Chromium and WebKit at desktop and phone widths.
+
+Teaser exports use a baked-in 1.4× speed (`setpts=PTS/1.4`), including the animated README preview. This does not change live website scrolling or the player’s default playback-rate setting.
