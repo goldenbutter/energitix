@@ -2,20 +2,21 @@
 
 Reusable template for any product. The supplied prompt is preserved below with cleaned pasted line breaks and Markdown headings. Fill in the project brief before using it; keep this template for future products.
 
-## Current project brief — approved direction
+## Current project brief: approved direction
 
 | Field | Current value / decision needed |
 | --- | --- |
-| Brand `[BRAND]` | ENERGITIX — from the supplied can label |
-| Product `[PRODUCT]` | ENERGITIX Original — illustrative citrus flavour |
+| Brand `[BRAND]` | ENERGITIX, from the supplied can label |
+| Product `[PRODUCT]` | ENERGITIX Original, illustrative citrus flavour |
 | Tagline `[TAGLINE]` | Bring the energy. |
 | Prices `[PRICES]` | NOK 35 per can; illustrative 6-pack NOK 210 and 12-pack NOK 420 |
 | Footer `[benefit]` | Stay curious. Stay energised. |
 | Website language | English |
+| Global copy rule | Never use em dashes in websites or outbound emails. This includes page titles, UI copy, metadata, social previews, alt text and public documentation. Rewrite sentences or use appropriate commas, colons or full stops. |
 | Wordmark treatment | Reconstructed artwork based on the can’s original slanted silver/orange lettering and lightning underline; use the transparent asset, not a substitute typeface. |
 | Creator portfolio | https://portfolio.ibithun.com |
 | LinkedIn | https://www.linkedin.com/in/bithun-chatterjee |
-| Contact email | bithun@ibithun.com — verified on the main iBithun website |
+| Contact email | bithun@ibithun.com, verified on the main iBithun website |
 | Publication plan | Future subdomain under ibithun.com; user will commission the main-site project listing separately. |
 | Product claims and three stats | Fictional portfolio concept. Illustrative 330 ml size; no nutritional or performance claims. |
 | Shop behaviour | Interactive demo cart only; no orders or payments |

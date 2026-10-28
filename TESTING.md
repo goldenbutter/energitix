@@ -1,4 +1,4 @@
-# Visual regression verification — 28 October 2026
+# Visual regression verification: 28 October 2026
 
 ## Film-entry defect
 

@@ -1,4 +1,4 @@
-# ENERGITIX — Bring the energy.
+# ENERGITIX: Bring the energy.
 
 A cinematic, interactive energy drink concept, designed and developed by **[iBithun](https://portfolio.ibithun.com)**. A single 3D can travels through a responsive product story, animated details, a liquid-splash commercial, and a playful demo shop.
 
@@ -8,7 +8,7 @@ A cinematic, interactive energy drink concept, designed and developed by **[iBit
 
 Click the animated preview to open the full-resolution video with playback controls. This 20-second desktop recording scrolls through the actual website from top to bottom. The supplied video retains its original timing and proportions.
 
-[![ENERGITIX desktop tour — click to watch the full video](public/media/energitix-teaser-20s-preview.gif)](https://energetix.ibithun.com/teaser.html)
+[![ENERGITIX desktop tour: click to watch the full video](public/media/energitix-teaser-20s-preview.gif)](https://energetix.ibithun.com/teaser.html)
 
 [Watch the MP4](https://energetix.ibithun.com/media/energitix-desktop-teaser.mp4) · [Video file in this repository](public/media/energitix-desktop-teaser.mp4)
 
