@@ -1,0 +1,6 @@
+analysis/
+.venv/
+node_modules/
+.git/
+bottle.png
+/Energy_drink*.mp4

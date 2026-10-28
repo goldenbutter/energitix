@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.venv/
+.vercel/
+.DS_Store
+analysis/
+.env
+.env.*
+*.log
+.vercel
+.env*
