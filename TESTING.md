@@ -50,3 +50,7 @@ Run `npm run test:splash` with the Python asset environment installed. Its scree
 The published teaser now uses the supplied `REC-20261028124110.mp4`, renamed to `energitix-desktop-teaser.mp4` without retiming or re-encoding. Metadata: 20.333 seconds, 1298 × 1060, H.264, 30 fps, no audio. Poster and GIF were regenerated from this file; the standalone player preserves its proportions.
 
 The production build and full MP4 decode passed. Chromium and WebKit playback passed at 1440 × 900 and 390 × 844: correct duration and dimensions, default playback rate 1, no horizontal overflow or page errors. Player screenshots are in ignored `analysis/teaser-recording/selected-*.png`.
+
+## Social sharing metadata
+
+The production build passes with static Open Graph and Twitter large-image metadata on both the homepage and teaser player. Both pages reference the dedicated HTTPS JPEG and declare image width, height, MIME type and alt text. The card was visually reviewed and its JPEG decoded successfully at 1200 × 630 (142 KB). The generation script waits for the exact brand assets and self-hosted font before capture.

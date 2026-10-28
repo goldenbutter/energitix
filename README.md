@@ -14,6 +14,10 @@ Click the animated preview to open the full-resolution video with playback contr
 
 GitHub READMEs do not consistently render arbitrary HTML video players. The animated preview plays directly here; the linked player supports play/pause, seeking, fullscreen, and download. The teaser is intentionally silent, matching the website’s sound-off default.
 
+## Social sharing
+
+The homepage and teaser player include server-delivered Open Graph and Twitter card metadata, with a dedicated 1200 × 630 JPEG at [`public/media/energitix-og-card.jpg`](public/media/energitix-og-card.jpg). The card reuses the exact product and wordmark assets and includes the iBithun credit. Rebuild it with `npm run generate:og` (requires Playwright Chromium).
+
 ## The experience
 
 - **One moving 3D product.** A lathed aluminum can with a photo-derived cylindrical label, metal rims, pull tab, condensation, and drag-to-rotate interaction.

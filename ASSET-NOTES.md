@@ -29,3 +29,8 @@ A film frame becomes available only after its image and matte have both decoded.
 The headline remains fully opaque and sits above the changing liquid image, while the solid can stays above both. This avoids brightness modulation of the ivory letters during the splash. A screenshot comparison of frame 100 reproduced the previous defect: 6,568 of 28,869 solid letter pixels changed. `scripts/verify-splash.mjs` compares unobscured letter interiors against a reference without the media layers, across the splash sequence in Chromium and WebKit at desktop and phone widths.
 
 The published teaser is the supplied `REC-20261028124110.mp4`, renamed to `public/media/energitix-desktop-teaser.mp4`: 20.33 seconds, 1298 × 1060, H.264 at 30 fps, without audio. Its original timing and video bytes are preserved. The README GIF (`energitix-teaser-20s-preview.gif`) and poster are generated from this selected video. The GIF has a distinct filename so cached previews from the earlier recording are not reused. The optional automated recorder still exports its own tours at 1.4× speed; it is not used to retime the supplied teaser.
+
+
+## Social sharing card
+
+`public/media/energitix-og-card.jpg` is a 1200 × 630 JPEG rendered by `scripts/generate-og-card.mjs` from a dedicated HTML/CSS layout. It reuses the existing can cutout, wordmark, and self-hosted Manrope font; no new product image or logo was synthesized. Run `npm run generate:og` to reproduce it. Both entry pages declare absolute HTTPS image URLs, dimensions, MIME type and alt text in their static metadata.
