@@ -16,7 +16,7 @@
 
 ## Two Vercel projects
 
-The original deployment was created in `goldenbutters-projects`. A second import of the same GitHub repository exists in `i-bithun`. Both were confirmed to receive commits from `main`. This explains why the original domain was absent from the newly imported project's dashboard. The local checkout is now linked to `i-bithun/energitix` for future CLI operations. The original project and its `energitix.vercel.app` fallback are retained.
+The original deployment was created in `goldenbutters-projects`. A second import of the same GitHub repository exists in `i-bithun`. Both were confirmed to receive commits from `main`. This explains why the original domain was absent from the newly imported project's dashboard. The local checkout is now linked to `i-bithun/energitix` for future CLI operations. The user has authorized deleting the original `goldenbutters-projects/energitix` duplicate after the custom domain is working on iBithun Pro. Deletion is pending the domain verification blocker below; removing it first would interrupt the custom hostname.
 
 ## Domain spelling and external DNS
 
@@ -31,13 +31,27 @@ Hostinger manages the zone through `apollo.dns-parking.com` and `athena.dns-park
 
 Only the ENERGITIX verification TXT was corrected; other domain, website and mail records remain intact. The CNAME is configured correctly. The corrected TXT was saved in Hostinger and is visible through Google and Cloudflare DNS.
 
-**Handover status, 28 October 2026:** the correct hostname has been added to `i-bithun/energitix`, but Vercel ownership verification is still pending. The original project's verified domain continues to serve the live site. Recheck the handover with:
+**Handover status, 28 October 2026:** the correct hostname has been added to `i-bithun/energitix`, but Vercel ownership verification is still pending. The original project's verified domain continues to serve the live site. Vercel still reports the required TXT as missing despite authoritative DNS, Google and Cloudflare returning the exact expected value. A guarded handover attempt restored the original verified binding when the new verification failed. Keep the current Hostinger CNAME and TXT records.
+
+Recheck the handover with:
 
 ```sh
 vercel domains verify energetix.ibithun.com --project energitix --format=json --scope i-bithun
 ```
 
 Do not change the parent domain's ownership, nameservers or unrelated DNS records to resolve this project-specific handover.
+
+## Web Analytics
+
+Web Analytics is enabled on `i-bithun/energitix`. The official `@vercel/analytics` SDK is bundled into both Vite HTML entries, the homepage and teaser. [Open the dashboard](https://vercel.com/i-bithun/energitix/analytics).
+
+Production verification on 28 October 2026 recorded one real browser view for `/` and one for `/teaser.html` on `energitix-three.vercel.app`, confirmed through Vercel's metrics API. Headless browser visits were filtered by the vendor script as intended. The custom hostname still serves the original team until the handover is verified, so those visits do not yet feed the iBithun analytics project.
+
+```sh
+vercel metrics vercel.analytics.page_view.count --since 1h --group-by requestPath --project energitix --environment production --scope i-bithun
+```
+
+After the custom hostname is verified on iBithun, confirm HTTPS and analytics there before deleting only `goldenbutters-projects/energitix`. Do not delete the iBithun project or transfer ownership of the parent `ibithun.com` domain.
 
 ## Verification
 
