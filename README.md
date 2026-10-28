@@ -2,11 +2,11 @@
 
 A cinematic, interactive energy drink concept, designed and developed by **[iBithun](https://portfolio.ibithun.com)**. A single 3D can travels through a responsive product story, animated details, a liquid-splash commercial, and a playful demo shop.
 
-**[Explore the website](https://energetix.ibithun.com)** · **[Watch the desktop teaser](https://energetix.ibithun.com/teaser.html)** · **[Work with iBithun](https://portfolio.ibithun.com)**
+**[Explore the website](https://energetix.ibithun.com)** · **[Vercel mirror](https://energitix.vercel.app)** · **[Watch the desktop teaser](https://energetix.ibithun.com/teaser.html)** · **[Work with iBithun](https://portfolio.ibithun.com)**
 
 ## Desktop teaser
 
-Click the animated preview to open the full-resolution video with playback controls. The recording scrolls through the actual desktop website from top to bottom.
+Click the animated preview to open the full-resolution video with playback controls. The 53-second recording scrolls through the actual desktop website from top to bottom.
 
 [![ENERGITIX desktop tour — click to watch the full video](public/media/energitix-desktop-teaser.gif)](https://energetix.ibithun.com/teaser.html)
 
@@ -65,7 +65,8 @@ public/
 scripts/
   process_assets.py        Rebuild supplied photo/video assets
   prepare_can_masks.py     Rebuild source-aligned product alpha masks
-  record-teaser.mjs         Capture and encode the desktop tour
+  record-teaser.mjs         Capture the desktop tour
+  finalize-teaser.mjs       Remove capture stalls and encode MP4/GIF
   verify.mjs               Browser and interaction checks
 MASTER-PROMPT.md            Reusable brief and approved concept choices
 ASSET-NOTES.md              Asset edits and film compositing notes
@@ -94,10 +95,10 @@ BASE_URL=https://energetix.ibithun.com npm run test:visual
 
 ## Re-create the teaser
 
-Install ffmpeg (including ffprobe) and Playwright Chromium, start the site, then run:
+Install ffmpeg (including ffprobe) and Playwright Chromium. For a stable recording without development-server reloads, run `npm run build` and `npm run preview -- --port 4173`, then in another terminal:
 
 ```sh
-npm run record:teaser
+TEASER_URL=http://localhost:4173 npm run record:teaser
 ```
 
 The recorder captures a 1600 × 900 desktop tour, including the pinned anatomy and commercial sections, ending on the iBithun footer. It exports an H.264 MP4 with fast-start playback, a lightweight animated GIF for GitHub, and a JPEG poster into `public/media/`. `TEASER_URL` can point at a different running deployment. Raw recordings and timing receipts stay in ignored `analysis/teaser-recording/`.
