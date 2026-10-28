@@ -18,6 +18,10 @@ GitHub READMEs do not consistently render arbitrary HTML video players. The anim
 
 The homepage and teaser player include server-delivered Open Graph and Twitter card metadata, with a dedicated 1200 × 630 JPEG at [`public/media/energitix-og-card.jpg`](public/media/energitix-og-card.jpg). The card reuses the exact product and wordmark assets and includes the iBithun credit. Rebuild it with `npm run generate:og` (requires Playwright Chromium).
 
+## Traffic analytics
+
+Vercel Web Analytics is enabled in the [iBithun project dashboard](https://vercel.com/i-bithun/energitix/analytics). The official `@vercel/analytics` package records page views on both the homepage and `/teaser.html`. It reports aggregate traffic, referrers, locations and device/browser breakdowns. Local development uses the SDK's development mode. A plain curl request does not run the browser tracking script.
+
 ## The experience
 
 - **One moving 3D product.** A lathed aluminum can with a photo-derived cylindrical label, metal rims, pull tab, condensation, and drag-to-rotate interaction.
@@ -66,13 +70,13 @@ src/
 public/
   assets/                  Product textures, wordmark, macros, frames and audio
   media/                   Teaser MP4, animated README preview and poster
-  teaser.html              Accessible standalone video player
 scripts/
   process_assets.py        Rebuild supplied photo/video assets
   prepare_can_masks.py     Rebuild source-aligned product alpha masks
   record-teaser.mjs         Capture the desktop tour
   finalize-teaser.mjs       Remove capture stalls and encode MP4/GIF
   verify.mjs               Browser and interaction checks
+teaser.html                Standalone player, built by Vite with analytics
 MASTER-PROMPT.md            Reusable brief and approved concept choices
 ASSET-NOTES.md              Asset edits and film compositing notes
 WORDMARK.md                 Wordmark design and generation reference

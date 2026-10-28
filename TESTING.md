@@ -54,3 +54,8 @@ The production build and full MP4 decode passed. Chromium and WebKit playback pa
 ## Social sharing metadata
 
 The production build passes with static Open Graph and Twitter large-image metadata on both the homepage and teaser player. Both pages reference the dedicated HTTPS JPEG and declare image width, height, MIME type and alt text. The card was visually reviewed and its JPEG decoded successfully at 1200 × 630 (142 KB). The generation script waits for the exact brand assets and self-hosted font before capture.
+
+
+## Web Analytics integration
+
+Installed `@vercel/analytics` 2.0.1 and shared its initialization between the homepage and the standalone teaser. The teaser is now a Vite HTML entry so both pages consume the same built analytics module. The production build passes. Browser checks at 1440 × 900 and 390 × 844 confirmed one analytics script load per page, no browser errors, no failed application assets, no horizontal overflow and no em dashes in rendered text. Local checks intercepted the vendor script; live collection is verified separately after deployment.

@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import './style.css';
+import './analytics.js';
 import { createProductScene } from './product-scene.js';
 import { createFilm } from './film.js';
 
