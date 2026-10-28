@@ -2,7 +2,7 @@
 
 A cinematic, interactive energy drink concept, designed and developed by **[iBithun](https://portfolio.ibithun.com)**. A single 3D can travels through a responsive product story, animated details, a liquid-splash commercial, and a playful demo shop.
 
-**[Explore the website](https://energetix.ibithun.com)** · **[Vercel mirror](https://energitix.vercel.app)** · **[Watch the desktop teaser](https://energetix.ibithun.com/teaser.html)** · **[Work with iBithun](https://portfolio.ibithun.com)**
+**[Explore the website](https://energetix.ibithun.com)** · **[Vercel mirror](https://energitix-three.vercel.app)** · **[Watch the desktop teaser](https://energetix.ibithun.com/teaser.html)** · **[Work with iBithun](https://portfolio.ibithun.com)**
 
 ## Desktop teaser
 
