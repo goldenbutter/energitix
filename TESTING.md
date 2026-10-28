@@ -44,3 +44,9 @@ The multiply-blended liquid previously sat above the headline, changing the ivor
 - Teaser MP4 encoding applies `setpts=PTS/1.4` after removing capture stalls. The README GIF derives from that sped-up MP4; the live website's scroll speed is unchanged. The fresh live-site recording is 37.67 seconds at 1600 × 900 / 30 fps and decoded without errors. The recording reported no page errors, and sampled splash frames retain steady lettering.
 
 Run `npm run test:splash` with the Python asset environment installed. Its screenshots and pixel-count report go to `analysis/splash-verification/`.
+
+## Supplied 20-second teaser
+
+The published teaser now uses the supplied `REC-20261028124110.mp4`, renamed to `energitix-desktop-teaser.mp4` without retiming or re-encoding. Metadata: 20.333 seconds, 1298 × 1060, H.264, 30 fps, no audio. Poster and GIF were regenerated from this file; the standalone player preserves its proportions.
+
+The production build and full MP4 decode passed. Chromium and WebKit playback passed at 1440 × 900 and 390 × 844: correct duration and dimensions, default playback rate 1, no horizontal overflow or page errors. Player screenshots are in ignored `analysis/teaser-recording/selected-*.png`.

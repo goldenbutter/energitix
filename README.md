@@ -6,7 +6,7 @@ A cinematic, interactive energy drink concept, designed and developed by **[iBit
 
 ## Desktop teaser
 
-Click the animated preview to open the full-resolution video with playback controls. The fresh 38-second recording of the live site, saved at 1.4× speed, scrolls through the actual desktop website from top to bottom.
+Click the animated preview to open the full-resolution video with playback controls. This 20-second desktop recording scrolls through the actual website from top to bottom. The supplied video retains its original timing and proportions.
 
 [![ENERGITIX desktop tour — click to watch the full video](public/media/energitix-desktop-teaser.gif)](https://energetix.ibithun.com/teaser.html)
 
@@ -107,7 +107,9 @@ The focused suite checks seven viewport sizes in Chromium and WebKit, including 
 
 With the Python asset-processing environment installed, run `npm run test:splash` to compare visible letter pixels across 18 film frames in desktop and phone viewports, in Chromium and WebKit. The moving liquid must not change the uncovered black or ivory letters. Results are stored in `analysis/splash-verification/`.
 
-## Re-create the teaser
+## Record an alternative teaser
+
+The published teaser is the supplied 20-second recording, renamed to `public/media/energitix-desktop-teaser.mp4`. The command below generates a different automated tour and replaces the published media files.
 
 Install ffmpeg (including ffprobe) and Playwright Chromium. For a stable recording without development-server reloads, run `npm run build` and `npm run preview -- --port 4173`, then in another terminal:
 
