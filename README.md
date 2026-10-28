@@ -6,7 +6,7 @@ A cinematic, interactive energy drink concept, designed and developed by **[iBit
 
 ## Desktop teaser
 
-Click the animated preview to open the full-resolution video with playback controls. The 39-second recording, saved at 1.4× speed, scrolls through the actual desktop website from top to bottom.
+Click the animated preview to open the full-resolution video with playback controls. The fresh 38-second recording of the live site, saved at 1.4× speed, scrolls through the actual desktop website from top to bottom.
 
 [![ENERGITIX desktop tour — click to watch the full video](public/media/energitix-desktop-teaser.gif)](https://energetix.ibithun.com/teaser.html)
 
