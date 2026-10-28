@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test:visual": "node scripts/verify.mjs",
-    "record:teaser": "node scripts/record-teaser.mjs"
+    "record:teaser": "node scripts/record-teaser.mjs",
+    "test:film": "node scripts/verify-film.mjs"
   },
   "dependencies": {
     "@fontsource-variable/anybody": "^5.2.0",

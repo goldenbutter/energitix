@@ -18,4 +18,8 @@ The original commercial crops the splash at the top of its 1280 × 720 frames. T
 
 ## Film headline layering
 
-The splash canvas uses multiply blending. Without a separate mask, dark headline text shows through the can while light text appears behind it. `scripts/prepare_can_masks.py` derives and temporally smooths the can silhouette from each source frame. `src/film.js` uses the resulting `public/assets/can-masks/` alpha images to exclude the can area from both headline lines. The same matte also composites the original can pixels on a normal-blend canvas above the film. This preserves solid silver highlights that multiply blending otherwise turns orange. The matte fills interior white reflections instead of treating brightness as transparency; its outside contour is inset and feathered, and the lower rim follows each frame’s row bounds. The splash outside the can retains multiply blending.
+The splash canvas uses multiply blending, while a separate normal-blend canvas restores the original can pixels through the source-aligned mattes in `public/assets/can-masks/`. This solid product layer occludes both headline colours and preserves silver highlights. The headline itself is never masked: masking it with the video silhouette caused holes while the video was invisible and the travelling 3D model was elsewhere.
+
+`scripts/prepare_can_masks.py` derives and temporally smooths the can silhouette. The matte fills interior white reflections instead of treating brightness as transparency; its outside contour is inset and feathered, and the lower rim follows each frame’s row bounds. The splash outside the can retains multiply blending.
+
+A film frame becomes available only after its image and matte have both decoded. The 3D model follows the film canvas’s actual visibility, so delayed media retains the model instead of exposing an incomplete product layer. Transition regression coverage lives in `scripts/verify-film.mjs`.

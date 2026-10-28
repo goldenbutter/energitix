@@ -106,8 +106,6 @@
 
 @media(max-width:700px){.film-heading{font-size:min(clamp(76px,24vw,150px),12svh)}}
 
-/* Cut the source can silhouette out of the headline, independently of text colour. */
-.film-heading{mask-repeat:no-repeat;mask-mode:alpha;mask-composite:exclude;-webkit-mask-composite:xor}
 
 /* Solid metal stays above the multiply-blended film and both headline lines. */
 .film-product-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none;opacity:0}

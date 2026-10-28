@@ -55,7 +55,7 @@ export function createProductScene(canvas,{asset,reduced,onProgress,onReady,onFe
  const shadow=document.querySelector('.product-shadow'),glow=document.querySelector('.product-glow'),hotspot=document.getElementById('hotspot');
  const connector=hotspot.querySelector('.hotspot-connector'),captionRule=hotspot.querySelector('.hotspot-caption-rule');
  let connectorAnimation=null,lastConnectorFeature=-1;
- const slots=[...document.querySelectorAll('[data-slot]')],anatomy=document.querySelector('.anatomy'),film=document.querySelector('.film'),footer=document.querySelector('.footer');
+ const slots=[...document.querySelectorAll('[data-slot]')],anatomy=document.querySelector('.anatomy'),film=document.querySelector('.film'),filmCanvas=film.querySelector('.film-canvas'),footer=document.querySelector('.footer');
  const state={x:0,y:0,h:500,yaw:0,roll:0,pitch:.40,dark:0};
  const resize=()=>{W=innerWidth;H=innerHeight;renderer.setSize(W,H,false);camera.aspect=W/H;camera.position.z=H/2/Math.tan(Math.PI/12);camera.updateProjectionMatrix();};resize();window.addEventListener('resize',resize);
  const pointerMove=e=>{pointer.x=e.clientX/W-.5;pointer.y=e.clientY/H-.5;if(dragging){const delta=(e.clientX-lastDrag)*.012;dragRotation+=delta;dragVelocity=delta;lastDrag=e.clientX;}};
@@ -89,7 +89,7 @@ export function createProductScene(canvas,{asset,reduced,onProgress,onReady,onFe
   const end=scrollY>=keys.at(-1).at;
   const target=end?keys.at(-1):{x:mix(a.x,b.x,e),y:mix(a.y,b.y,e),h:mix(a.h,b.h,e),yaw:mix(a.yaw,b.yaw,e),roll:mix(a.roll,b.roll,e),pitch:mix(a.pitch,b.pitch,e),dark:mix(a.dark,b.dark,e)};
   const aRect=anatomy.getBoundingClientRect(),aActive=aRect.top<=0&&aRect.bottom>=H;
-  const fRect=film.getBoundingClientRect(),fActive=fRect.top<=0&&fRect.bottom>=H,fp=clamp(-fRect.top/(film.offsetHeight-H));
+  const fRect=film.getBoundingClientRect(),fActive=fRect.top<=0&&fRect.bottom>=H;
   const calm=aActive||fActive;
   scrollSpeed=mix(scrollSpeed,clamp((scrollY-lastScroll)/Math.max(dt,.01),-2400,2400),.08);lastScroll=scrollY;
   for(const prop of ['x','y','h','yaw','roll','pitch','dark'])state[prop]=mix(state[prop],target[prop],damping);
@@ -103,7 +103,8 @@ export function createProductScene(canvas,{asset,reduced,onProgress,onReady,onFe
   yaw.rotation.y=(reduced?0:state.yaw)+(calm||reduced?0:Math.sin(elapsed*.55)*.045+pointer.x*.08)+(scrollY<H*.7?dragRotation:0)+(1-entry)*TAU;
   const s=state.h/4.8;placement.scale.setScalar(s*(1+fly*.025));
   // Fade only while the measured first-frame photograph replaces the model.
-  const videoOpacity=fActive?(fp<.06?clamp(fp/.06):fp>.94?clamp((1-fp)/.06):1):0;
+  // Follow the actual, decoded film layers, including delayed/failed media.
+  const videoOpacity=Number(filmCanvas.style.opacity)||0;
   const footerFade=clamp(footer.getBoundingClientRect().top/H);
   renderer.domElement.style.opacity=String((1-videoOpacity)*footerFade*entry);
   shadow.style.opacity=String((1-fly)*(1-state.dark)*(1-videoOpacity)*footerFade*entry);

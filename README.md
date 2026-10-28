@@ -45,6 +45,7 @@ Open the URL printed by Vite, normally `http://localhost:5173`.
 | `npm run build` | Build the static site into `dist/` |
 | `npm run preview` | Serve the production build locally |
 | `npm run test:visual` | Check desktop/mobile layouts and demo bag interactions |
+| `npm run test:film` | Check film transitions, reverse scrolling, complete title pixels and delayed media in Chromium/WebKit |
 | `npm run record:teaser` | Re-record the desktop tour and create MP4/GIF outputs |
 
 ## Stack and structure
@@ -92,6 +93,15 @@ To check another deployment:
 ```sh
 BASE_URL=https://energetix.ibithun.com npm run test:visual
 ```
+
+### Film transition regression checks
+
+```sh
+npx playwright install chromium webkit
+npm run test:film
+```
+
+The focused suite checks seven viewport sizes in Chromium and WebKit, including phones, tablet, landscape and desktop. It samples film entry, playback and exit in both scroll directions, compares the entering title against an unoccluded pixel reference, and delays product mattes to verify the 3D fallback remains visible. Reduced-motion loading is checked separately. Reports and screenshots go to `analysis/film-verification/`. See [TESTING.md](TESTING.md) for the verified matrix and regression details.
 
 ## Re-create the teaser
 
