@@ -14,48 +14,48 @@
 - **Output:** `dist`
 - **Application secrets / environment variables:** none required
 
-## Two Vercel projects
+## Domain and project ownership
 
-The original deployment was created in `goldenbutters-projects`. A second import of the same GitHub repository exists in `i-bithun`. Both were confirmed to receive commits from `main`. This explains why the original domain was absent from the newly imported project's dashboard. The local checkout is now linked to `i-bithun/energitix` for future CLI operations. The user has authorized deleting the original `goldenbutters-projects/energitix` duplicate after the custom domain is working on iBithun Pro. Deletion is pending the domain verification blocker below; removing it first would interrupt the custom hostname.
+The canonical hostname is **energitix.ibithun.com**, matching the **ENERGITIX / energitix** brand and repository. Website metadata, teaser links, README links and the generated OG card use this spelling.
 
-## Domain spelling and external DNS
+**Completed 29 October 2026:** both custom hostnames are verified on `i-bithun/energitix`. The canonical hostname serves production over HTTPS. The earlier **energetix.ibithun.com** spelling returns a permanent HTTP 308 redirect to the canonical hostname, preserving paths and query strings. The homepage, teaser and OG image returned HTTP 200 at the corrected address.
 
-On 29 October 2026 the canonical hostname was corrected to **energitix.ibithun.com**, matching the **ENERGITIX / energitix** brand and repository. The earlier **energetix.ibithun.com** spelling is a legacy address. Website metadata, teaser links, README links and the generated OG card use the corrected spelling.
+The original `goldenbutters-projects/energitix` duplicate was deleted after moving the legacy hostname, confirming the redirect and verifying the iBithun production site. This completes the user's previously authorized cleanup. The local checkout remains linked to the iBithun project. The old `energitix.vercel.app` duplicate URL is retired; use the canonical hostname or `energitix-three.vercel.app` fallback.
 
-Hostinger manages the zone through `apollo.dns-parking.com` and `athena.dns-parking.com`. Vercel requires these records for the corrected hostname in the iBithun project:
+## External DNS
+
+Hostinger manages the zone through `apollo.dns-parking.com` and `athena.dns-parking.com`.
 
 | Type | Name | Value | TTL |
 | --- | --- | --- | --- |
 | CNAME | `energitix` | `11371a23cb8cfe44.vercel-dns-016.com` | 3600 |
 | TXT | `_vercel` | `vc-domain-verify=energitix.ibithun.com,f81238940553480a8b60` | 3600 |
+| CNAME | `energetix` | `11371a23cb8cfe44.vercel-dns-016.com` | 3600 |
+| TXT | `_vercel` | `vc-domain-verify=energetix.ibithun.com,14b6d3f798b6e8fe4afa` | 3600 |
 
-**Status, 29 October 2026:** the corrected hostname is attached to `i-bithun/energitix`, but its CNAME and verification TXT are missing. Hostinger sign-in is needed to add them. Preserve the existing legacy CNAME and unrelated TXT, mail and domain records. After the corrected hostname passes verification and HTTPS checks, redirect the legacy address to it so existing links keep working.
-
-The legacy hostname remains verified on `goldenbutters-projects/energitix` and serves the site while the corrected domain is configured. Do not delete that project before the corrected domain works and the legacy redirect has a verified replacement binding.
-
-Recheck the corrected hostname with:
+The two corrected-hostname records were added through the existing signed-in Hostinger session. Authoritative DNS and Vercel verification confirmed them. The legacy CNAME remains necessary for previously shared links to reach the redirect. Unrelated records, nameservers and parent-domain ownership were preserved.
 
 ```sh
 vercel domains verify energitix.ibithun.com --project energitix --format=json --scope i-bithun
 ```
 
-Do not change the parent domain's ownership, nameservers or unrelated DNS records to resolve this project-specific configuration.
-
 ## Web Analytics
 
 Web Analytics is enabled on `i-bithun/energitix`. The official `@vercel/analytics` SDK is bundled into both Vite HTML entries, the homepage and teaser. [Open the dashboard](https://vercel.com/i-bithun/energitix/analytics).
 
-Production verification on 28 October 2026 recorded one real browser view for `/` and one for `/teaser.html` on `energitix-three.vercel.app`, confirmed through Vercel's metrics API. Headless browser visits were filtered by the vendor script as intended. The custom hostname still serves the original team until the handover is verified, so those visits do not yet feed the iBithun analytics project.
+Production verification on 28 October 2026 recorded one real browser view for `/` and one for `/teaser.html` on `energitix-three.vercel.app`, confirmed through Vercel's metrics API. Headless browser visits were filtered by the vendor script as intended. As of 29 October 2026, the corrected custom hostname serves the iBithun project with the same analytics integration. Automated headless checks are not evidence of counted visitor events.
 
 ```sh
 vercel metrics vercel.analytics.page_view.count --since 1h --group-by requestPath --project energitix --environment production --scope i-bithun
 ```
 
-After the custom hostname is verified on iBithun, confirm HTTPS and analytics there before deleting only `goldenbutters-projects/energitix`. Do not delete the iBithun project or transfer ownership of the parent `ibithun.com` domain.
+Keep `i-bithun/energitix` as the sole project for this website. The parent `ibithun.com` domain ownership remains unchanged.
 
 ## Verification
 
 The OG card and metadata are live on the custom domain. Requests using Facebook and LinkedIn crawler user agents retrieved the homepage and teaser metadata and the 1200 × 630 JPEG successfully with HTTP 200. The metadata is included in the initial HTML and does not require JavaScript.
+
+Domain-correction checks on 29 October 2026 passed at desktop and mobile widths with correct canonical metadata, no browser errors and no horizontal overflow. HTTPS, homepage, teaser, OG image and legacy redirects were also checked. Screenshots are in ignored `analysis/domain-correction/`.
 
 Earlier visual regression checks passed at 1440 × 900 and 390 × 844 with 32 screenshots, no browser errors or horizontal overflow, working demo bag controls and reduced-motion checks. Focused film tests and the 72-comparison lettering suite are documented in `TESTING.md`. Temporary receipts and screenshots stay in ignored `analysis/`.
 
