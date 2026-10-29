@@ -32,7 +32,7 @@ npm run test:film
 npm run test:visual
 ```
 
-Use `BASE_URL=https://energetix.ibithun.com` to target production. `FILM_ENGINES=chromium` or `FILM_ENGINES=webkit` selects an engine; `FILM_SPECIAL_ONLY=1` runs only loading and resize cases. Screenshots and JSON reports are stored in ignored `analysis/`.
+Use `BASE_URL=https://energitix.ibithun.com` to target production. `FILM_ENGINES=chromium` or `FILM_ENGINES=webkit` selects an engine; `FILM_SPECIAL_ONLY=1` runs only loading and resize cases. Screenshots and JSON reports are stored in ignored `analysis/`.
 
 ## Splash lettering and teaser speed follow-up
 

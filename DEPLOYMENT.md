@@ -6,8 +6,8 @@
 - **Project ID:** `prj_18PbXbA735aAwP3KTsUnRr3qkgni`
 - **Team:** `i-bithun`
 - **Project fallback:** https://energitix-three.vercel.app
-- **Canonical website:** https://energetix.ibithun.com
-- **Video player:** https://energetix.ibithun.com/teaser.html
+- **Canonical website:** https://energitix.ibithun.com
+- **Video player:** https://energitix.ibithun.com/teaser.html
 - **Framework:** Vite / static React site
 - **Install:** `npm ci`
 - **Build:** `npm run build`
@@ -20,26 +20,26 @@ The original deployment was created in `goldenbutters-projects`. A second import
 
 ## Domain spelling and external DNS
 
-The requested hostname is **energetix.ibithun.com**; the brand and GitHub repository are **ENERGITIX / energitix**. A separate `energitix.ibithun.com` entry was added to the new project by mistake. It has no matching CNAME and is not the site's canonical address.
+On 29 October 2026 the canonical hostname was corrected to **energitix.ibithun.com**, matching the **ENERGITIX / energitix** brand and repository. The earlier **energetix.ibithun.com** spelling is a legacy address. Website metadata, teaser links, README links and the generated OG card use the corrected spelling.
 
-Hostinger manages the zone through `apollo.dns-parking.com` and `athena.dns-parking.com`. The correct records for the iBithun project are:
+Hostinger manages the zone through `apollo.dns-parking.com` and `athena.dns-parking.com`. Vercel requires these records for the corrected hostname in the iBithun project:
 
 | Type | Name | Value | TTL |
 | --- | --- | --- | --- |
-| CNAME | `energetix` | `11371a23cb8cfe44.vercel-dns-016.com` | 3600 |
-| TXT | `_vercel` | `vc-domain-verify=energetix.ibithun.com,14b6d3f798b6e8fe4afa` | 3600 |
+| CNAME | `energitix` | `11371a23cb8cfe44.vercel-dns-016.com` | 3600 |
+| TXT | `_vercel` | `vc-domain-verify=energitix.ibithun.com,f81238940553480a8b60` | 3600 |
 
-Only the ENERGITIX verification TXT was corrected; other domain, website and mail records remain intact. The CNAME is configured correctly. The corrected TXT was saved in Hostinger and is visible through Google and Cloudflare DNS.
+**Status, 29 October 2026:** the corrected hostname is attached to `i-bithun/energitix`, but its CNAME and verification TXT are missing. Hostinger sign-in is needed to add them. Preserve the existing legacy CNAME and unrelated TXT, mail and domain records. After the corrected hostname passes verification and HTTPS checks, redirect the legacy address to it so existing links keep working.
 
-**Handover status, 28 October 2026:** the correct hostname has been added to `i-bithun/energitix`, but Vercel ownership verification is still pending. The original project's verified domain continues to serve the live site. Vercel still reports the required TXT as missing despite authoritative DNS, Google and Cloudflare returning the exact expected value. A guarded handover attempt restored the original verified binding when the new verification failed. Keep the current Hostinger CNAME and TXT records.
+The legacy hostname remains verified on `goldenbutters-projects/energitix` and serves the site while the corrected domain is configured. Do not delete that project before the corrected domain works and the legacy redirect has a verified replacement binding.
 
-Recheck the handover with:
+Recheck the corrected hostname with:
 
 ```sh
-vercel domains verify energetix.ibithun.com --project energitix --format=json --scope i-bithun
+vercel domains verify energitix.ibithun.com --project energitix --format=json --scope i-bithun
 ```
 
-Do not change the parent domain's ownership, nameservers or unrelated DNS records to resolve this project-specific handover.
+Do not change the parent domain's ownership, nameservers or unrelated DNS records to resolve this project-specific configuration.
 
 ## Web Analytics
 

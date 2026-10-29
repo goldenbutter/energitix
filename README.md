@@ -2,15 +2,15 @@
 
 A cinematic, interactive energy drink concept, designed and developed by **[iBithun](https://portfolio.ibithun.com)**. A single 3D can travels through a responsive product story, animated details, a liquid-splash commercial, and a playful demo shop.
 
-**[Explore the website](https://energetix.ibithun.com)** · **[Vercel mirror](https://energitix-three.vercel.app)** · **[Watch the desktop teaser](https://energetix.ibithun.com/teaser.html)** · **[Work with iBithun](https://portfolio.ibithun.com)**
+**[Explore the website](https://energitix.ibithun.com)** · **[Vercel mirror](https://energitix-three.vercel.app)** · **[Watch the desktop teaser](https://energitix.ibithun.com/teaser.html)** · **[Work with iBithun](https://portfolio.ibithun.com)**
 
 ## Desktop teaser
 
 Click the animated preview to open the full-resolution video with playback controls. This 20-second desktop recording scrolls through the actual website from top to bottom. The supplied video retains its original timing and proportions.
 
-[![ENERGITIX desktop tour: click to watch the full video](public/media/energitix-teaser-20s-preview.gif)](https://energetix.ibithun.com/teaser.html)
+[![ENERGITIX desktop tour: click to watch the full video](public/media/energitix-teaser-20s-preview.gif)](https://energitix.ibithun.com/teaser.html)
 
-[Watch the MP4](https://energetix.ibithun.com/media/energitix-desktop-teaser.mp4) · [Video file in this repository](public/media/energitix-desktop-teaser.mp4)
+[Watch the MP4](https://energitix.ibithun.com/media/energitix-desktop-teaser.mp4) · [Video file in this repository](public/media/energitix-desktop-teaser.mp4)
 
 GitHub READMEs do not consistently render arbitrary HTML video players. The animated preview plays directly here; the linked player supports play/pause, seeking, fullscreen, and download. The teaser is intentionally silent, matching the website’s sound-off default.
 
@@ -99,7 +99,7 @@ The script captures 15 scroll positions at 1440 × 900 and 390 × 844, plus bag 
 To check another deployment:
 
 ```sh
-BASE_URL=https://energetix.ibithun.com npm run test:visual
+BASE_URL=https://energitix.ibithun.com npm run test:visual
 ```
 
 ### Film transition regression checks
@@ -144,7 +144,7 @@ Measurements and silhouettes are specific to the supplied photo and film. Update
 
 Vercel builds this repository with `npm ci` and `npm run build`, then serves `dist/`. No environment variables are required. The production branch is `main`.
 
-The requested custom hostname is **`energetix.ibithun.com`** (spelled exactly as requested); the product branding and repository are **ENERGITIX / energitix**. DNS for `ibithun.com` is managed outside Vercel. Domain setup and deployment status are recorded in [DEPLOYMENT.md](DEPLOYMENT.md).
+The canonical hostname is **`energitix.ibithun.com`**, matching the **ENERGITIX** product name and **energitix** repository. DNS for `ibithun.com` is managed outside Vercel. Domain setup and deployment status are recorded in [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Credits and contact
 
